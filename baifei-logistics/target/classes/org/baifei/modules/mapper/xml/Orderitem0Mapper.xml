@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.baifei.modules.mapper.Orderitem0Mapper">
+    <select id="getItemsProduct" resultType="org.baifei.modules.entity.Orderitem0">
+        select * from db_orderitem0 o ,
+        (select declare_cn_name,declare_en_name,declare_value,test_weight,product_sku from  product_info
+        union
+         select declare_cn_name,declare_en_name,declare_value,test_weight, hw_sku 'product_sku' from  hw_sku_info
+         ) p
+        where  o.stockSku=p.product_sku and orderId=#{orderId} limit 100
+    </select>
+</mapper>

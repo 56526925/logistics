@@ -1,0 +1,5 @@
+org\baifei\LogisticsApplication.class
+org\baifei\JeecgOneGUI.class
+org\baifei\config\mybatis\MybatisInterceptor.class
+org\baifei\config\MybatisPlusConfig.class
+org\baifei\JeecgOneToMainUtil.class

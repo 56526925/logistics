@@ -1,0 +1,722 @@
+<?xml version="1.0" ?>
+<wsdl:definitions name="OrderOnlineServiceService" targetNamespace="http://service.hop.service.ws.hlt.com/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://service.hop.service.ws.hlt.com/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema targetNamespace="http://service.hop.service.ws.hlt.com/" version="1.0" xmlns:tns="http://service.hop.service.ws.hlt.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:complexType name="createOrderRequestV2">
+<xs:sequence>
+<xs:element minOccurs="0" name="additionalJson" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="cargoCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeAddress" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeCity" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeCompanyName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeMobile" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneePostcode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeProvince" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeStreet" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeStreetNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeTelephone" type="xs:string"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="declareItems" nillable="true" type="tns:declareItem"></xs:element>
+<xs:element minOccurs="0" name="destinationCountryCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="goodsCategory" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="goodsDescription" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="height" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="insured" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="length" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="memo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="orderNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="originCountryCode" type="xs:string"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="packageItems" nillable="true" type="tns:packageItem"></xs:element>
+<xs:element minOccurs="0" name="pieces" type="xs:long"></xs:element>
+<xs:element minOccurs="0" name="platformNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperAddress" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperCity" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperCompanyName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperMobile" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperPostcode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperProvince" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperStreet" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperStreetNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperTelephone" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="trackingNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="transportWayCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="weight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="width" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="declareItem">
+<xs:sequence>
+<xs:element minOccurs="0" name="cnName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="customsNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="netWeight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="pieces" type="xs:long"></xs:element>
+<xs:element minOccurs="0" name="productMemo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="unitPrice" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="packageItem">
+<xs:sequence>
+<xs:element minOccurs="0" name="height" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="length" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="trackingNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="weight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="width" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="id" type="xs:long"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+<xs:element minOccurs="0" name="trackingNo" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="HopHopError">
+<xs:sequence>
+<xs:element minOccurs="0" name="errorCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="errorInfo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="solution" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="orderInfoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="lockedCount" type="xs:int"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="orderList" nillable="true" type="tns:order"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+<xs:element minOccurs="0" name="successCount" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="order">
+<xs:sequence>
+<xs:element minOccurs="0" name="auditTime" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="balanceWeight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="cargoCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="city" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeCompanyName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeCountry" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeMobile" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneePostcode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeTelephone" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="createTime" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="currency" type="xs:string"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="declareItems" nillable="true" type="tns:declareItem"></xs:element>
+<xs:element minOccurs="0" name="destinationCountryCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="goodsCategory" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="goodsDescription" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="hawbCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="height" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="insured" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="issue" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="issueDesc" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="length" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="memo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="orderId" type="xs:int"></xs:element>
+<xs:element minOccurs="0" name="orderNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="originCountryCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="otherFee" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="pieces" type="xs:int"></xs:element>
+<xs:element minOccurs="0" name="province" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="realVolWeight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="realWeight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="receiveTime" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipTime" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperAddress" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperCompanyName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperMobile" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperPostcode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperTelephone" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="status" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="statusDescription" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="street" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="taxReturnNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="totalFee" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="trackingNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="transportFee" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="transportWayCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="transportWayName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="vweightList" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="weight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="width" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="lookupOrderRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="orderId" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="orderNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="trackingNo" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="lookupOrderVirtualWnoResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="order" type="tns:orderWithVirtual"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="orderWithVirtual">
+<xs:complexContent>
+<xs:extension base="tns:order">
+<xs:sequence>
+<xs:element minOccurs="0" name="virtualWno" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="printOrderRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="downloadPdf" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="oid" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="orderNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="pageSizeCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="printSelect" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="showCnoBarcode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="showRecycleTags" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="trackingNo" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="printOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+<xs:element minOccurs="0" name="url" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="calculateChargeRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="cargoCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="countryCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="height" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="length" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="postcode" type="xs:string"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="transportWayCode" nillable="true" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="weight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="width" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="calculateChargeResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="transportFee" nillable="true" type="tns:transportFee"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="transportFee">
+<xs:sequence>
+<xs:element minOccurs="0" name="currency" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="deliveryPeriod" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="description" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="discount" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="formula" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="freight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="freightFaraway" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="freightFuel" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="sum" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="tracking" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="transportWayCName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="transportWayCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="transportWayEName" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="deleteOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="auditOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+<xs:element minOccurs="0" name="trackingNo" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getTrackResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+<xs:element minOccurs="0" name="trace" type="tns:trace"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="trace">
+<xs:sequence>
+<xs:element minOccurs="0" name="enpathInfo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="pathAddr" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="pathInfo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="pathTime" type="xs:dateTime"></xs:element>
+<xs:element minOccurs="0" name="rcountry" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="status" type="xs:int"></xs:element>
+<xs:element minOccurs="0" name="tno" type="xs:string"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="rPaths" nillable="true" type="tns:tracePath"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="sPaths" nillable="true" type="tns:tracePath"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="tracePath">
+<xs:sequence>
+<xs:element minOccurs="0" name="enpathInfo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="pathAddr" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="pathInfo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="pathTime" type="xs:dateTime"></xs:element>
+<xs:element minOccurs="0" name="pathType" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="createOrderRequest">
+<xs:sequence>
+<xs:element minOccurs="0" name="additionalJson" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="cargoCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="city" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="codCurrency" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="codSum" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="consigneeCompanyName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeMobile" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneePostcode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeStreetNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="consigneeTelephone" type="xs:string"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="declareItems" nillable="true" type="tns:declareItem"></xs:element>
+<xs:element minOccurs="0" name="destinationCountryCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="goodsCategory" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="goodsDescription" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="height" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="insured" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="length" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="memo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="orderNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="originCountryCode" type="xs:string"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="packageItems" nillable="true" type="tns:packageItem"></xs:element>
+<xs:element minOccurs="0" name="pieces" type="xs:long"></xs:element>
+<xs:element minOccurs="0" name="platformNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="province" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperAddress" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperCity" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperCompanyName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperMobile" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperName" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperPostcode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperProvince" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperStreet" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperStreetNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="shipperTelephone" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="street" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="trackingNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="transportWayCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="weight" type="xs:double"></xs:element>
+<xs:element minOccurs="0" name="width" type="xs:double"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="lookupOrderResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="order" type="tns:order"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="lookupOrderInfoLoadResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="order" type="tns:orderWithInfoLoad"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="orderWithInfoLoad">
+<xs:complexContent>
+<xs:extension base="tns:order">
+<xs:sequence>
+<xs:element minOccurs="0" name="disPatchNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="loadTime" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="packageCode" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="station" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:extension>
+</xs:complexContent>
+</xs:complexType>
+<xs:complexType name="getTransportWayListResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="error" type="tns:HopHopError"></xs:element>
+<xs:element minOccurs="0" name="success" type="xs:boolean"></xs:element>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="transportWays" nillable="true" type="tns:transportWay"></xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="transportWay">
+<xs:sequence>
+<xs:element minOccurs="0" name="autoFetchTrackingNo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="code" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="name" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="trackingNoRuleMemo" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="trackingNoRuleRegex" type="xs:string"></xs:element>
+<xs:element minOccurs="0" name="used" type="xs:string"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="lookupOrderVirtualWno">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="lookupOrderRequest" type="tns:lookupOrderRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTransportWayList">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orderInfoList">
+    <wsdl:part name="apiToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="beginDate" type="xsd:dateTime">
+    </wsdl:part>
+    <wsdl:part name="endDate" type="xsd:dateTime">
+    </wsdl:part>
+    <wsdl:part name="page" type="xsd:int">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lookupOrderResponse">
+    <wsdl:part name="return" type="tns:lookupOrderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAndAuditOrderV2Response">
+    <wsdl:part name="return" type="tns:createOrderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTrackResponse">
+    <wsdl:part name="return" type="tns:getTrackResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAndAuditOrderResponse">
+    <wsdl:part name="return" type="tns:createOrderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lookupOrderInfoLoad">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="lookupOrderRequest" type="tns:lookupOrderRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="auditOrderResponse">
+    <wsdl:part name="return" type="tns:auditOrderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrder">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="createOrderRequest" type="tns:createOrderRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAndAuditOrder">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="createOrderRequest" type="tns:createOrderRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTrack">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="trackingNo" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="orderNo" type="xsd:string">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrderV2Response">
+    <wsdl:part name="return" type="tns:createOrderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createAndAuditOrderV2">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="createOrderRequestV2" type="tns:createOrderRequestV2">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="orderInfoListResponse">
+    <wsdl:part name="return" type="tns:orderInfoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrderResponse">
+    <wsdl:part name="return" type="tns:createOrderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lookupOrderVirtualWnoResponse">
+    <wsdl:part name="return" type="tns:lookupOrderVirtualWnoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="printOrderResponse">
+    <wsdl:part name="return" type="tns:printOrderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lookupOrder">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="lookupOrderRequest" type="tns:lookupOrderRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateChargeResponse">
+    <wsdl:part name="return" type="tns:calculateChargeResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="auditOrder">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="orderId" type="xsd:long">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="printOrder">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="printOrderRequest" type="tns:printOrderRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="lookupOrderInfoLoadResponse">
+    <wsdl:part name="return" type="tns:lookupOrderInfoLoadResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createOrderV2">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="createOrderRequestV2" type="tns:createOrderRequestV2">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteOrder">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="orderId" type="xsd:long">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteOrderResponse">
+    <wsdl:part name="return" type="tns:deleteOrderResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="calculateCharge">
+    <wsdl:part name="userToken" type="xsd:string">
+    </wsdl:part>
+    <wsdl:part name="calculateChargeRequest" type="tns:calculateChargeRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTransportWayListResponse">
+    <wsdl:part name="return" type="tns:getTransportWayListResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="OrderOnlineService">
+    <wsdl:operation name="createOrderV2">
+      <wsdl:input message="tns:createOrderV2" name="createOrderV2">
+    </wsdl:input>
+      <wsdl:output message="tns:createOrderV2Response" name="createOrderV2Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="orderInfoList">
+      <wsdl:input message="tns:orderInfoList" name="orderInfoList">
+    </wsdl:input>
+      <wsdl:output message="tns:orderInfoListResponse" name="orderInfoListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupOrderVirtualWno">
+      <wsdl:input message="tns:lookupOrderVirtualWno" name="lookupOrderVirtualWno">
+    </wsdl:input>
+      <wsdl:output message="tns:lookupOrderVirtualWnoResponse" name="lookupOrderVirtualWnoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="printOrder">
+      <wsdl:input message="tns:printOrder" name="printOrder">
+    </wsdl:input>
+      <wsdl:output message="tns:printOrderResponse" name="printOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAndAuditOrderV2">
+      <wsdl:input message="tns:createAndAuditOrderV2" name="createAndAuditOrderV2">
+    </wsdl:input>
+      <wsdl:output message="tns:createAndAuditOrderV2Response" name="createAndAuditOrderV2Response">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateCharge">
+      <wsdl:input message="tns:calculateCharge" name="calculateCharge">
+    </wsdl:input>
+      <wsdl:output message="tns:calculateChargeResponse" name="calculateChargeResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteOrder">
+      <wsdl:input message="tns:deleteOrder" name="deleteOrder">
+    </wsdl:input>
+      <wsdl:output message="tns:deleteOrderResponse" name="deleteOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="auditOrder">
+      <wsdl:input message="tns:auditOrder" name="auditOrder">
+    </wsdl:input>
+      <wsdl:output message="tns:auditOrderResponse" name="auditOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrack">
+      <wsdl:input message="tns:getTrack" name="getTrack">
+    </wsdl:input>
+      <wsdl:output message="tns:getTrackResponse" name="getTrackResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <wsdl:input message="tns:createOrder" name="createOrder">
+    </wsdl:input>
+      <wsdl:output message="tns:createOrderResponse" name="createOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupOrder">
+      <wsdl:input message="tns:lookupOrder" name="lookupOrder">
+    </wsdl:input>
+      <wsdl:output message="tns:lookupOrderResponse" name="lookupOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupOrderInfoLoad">
+      <wsdl:input message="tns:lookupOrderInfoLoad" name="lookupOrderInfoLoad">
+    </wsdl:input>
+      <wsdl:output message="tns:lookupOrderInfoLoadResponse" name="lookupOrderInfoLoadResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAndAuditOrder">
+      <wsdl:input message="tns:createAndAuditOrder" name="createAndAuditOrder">
+    </wsdl:input>
+      <wsdl:output message="tns:createAndAuditOrderResponse" name="createAndAuditOrderResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransportWayList">
+      <wsdl:input message="tns:getTransportWayList" name="getTransportWayList">
+    </wsdl:input>
+      <wsdl:output message="tns:getTransportWayListResponse" name="getTransportWayListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrderOnlineServiceServiceSoapBinding" type="tns:OrderOnlineService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <wsdl:operation name="createOrderV2">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="createOrderV2">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="createOrderV2Response">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="orderInfoList">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="orderInfoList">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="orderInfoListResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupOrderVirtualWno">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="lookupOrderVirtualWno">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="lookupOrderVirtualWnoResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="printOrder">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="printOrder">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="printOrderResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAndAuditOrderV2">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="createAndAuditOrderV2">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="createAndAuditOrderV2Response">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="calculateCharge">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="calculateCharge">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="calculateChargeResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteOrder">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="deleteOrder">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="deleteOrderResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="auditOrder">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="auditOrder">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="auditOrderResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTrack">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="getTrack">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getTrackResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createOrder">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="createOrder">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="createOrderResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupOrder">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="lookupOrder">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="lookupOrderResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="lookupOrderInfoLoad">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="lookupOrderInfoLoad">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="lookupOrderInfoLoadResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createAndAuditOrder">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="createAndAuditOrder">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="createAndAuditOrderResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTransportWayList">
+      <soap:operation soapAction="" style="rpc"></soap:operation>
+      <wsdl:input name="getTransportWayList">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:input>
+      <wsdl:output name="getTransportWayListResponse">
+        <soap:body namespace="http://service.hop.service.ws.hlt.com/" use="literal"></soap:body>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderOnlineServiceService">
+    <wsdl:port binding="tns:OrderOnlineServiceServiceSoapBinding" name="OrderOnlineServicePort">
+      <soap:address location="http://120.78.72.68:8086/xms/services/order"></soap:address>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>baifei-boot-parent</artifactId>
+        <groupId>org.baifeiframework.boot</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>baifei-logistics</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.baifeiframework.boot</groupId>
+            <artifactId>baifei-boot-base-common</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.baifeiframework.boot</groupId>
+            <artifactId>baifei-boot-module-system</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.taobao</groupId>
+            <artifactId>taobao-sdk-java-auto</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.taobao</groupId>
+            <artifactId>taobao-sdk-java-auto-source</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>1.4.12</version>
+        </dependency>
+
+        <!--axis-->
+        <dependency>
+            <groupId>axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.4</version>
+        </dependency>
+        <!--shunyou-->
+        <dependency>
+            <groupId>com.sunyou</groupId>
+            <artifactId>sunyouSDK</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
+
+    </dependencies>
+
+
+</project>

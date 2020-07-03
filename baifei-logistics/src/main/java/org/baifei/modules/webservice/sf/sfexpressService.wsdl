@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.ktswebservice.main.sf.com/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:ns1="http://ktswebservice.main.sf.com/" name="SfKtsServiceImplService"
+                  targetNamespace="http://impl.ktswebservice.main.sf.com/">
+  <wsdl:import location="http://sfapi.trackmeeasy.com/ruserver/webservice/sfexpressService?wsdl=SfKtsService.wsdl" namespace="http://ktswebservice.main.sf.com/">
+    </wsdl:import>
+  <wsdl:binding name="SfKtsServiceImplServiceSoapBinding" type="ns1:SfKtsService">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sfKtsService">
+      <soap:operation soapAction="" style="rpc"/>
+      <wsdl:input name="sfKtsService">
+        <soap:body namespace="http://ktswebservice.main.sf.com/" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sfKtsServiceResponse">
+        <soap:body namespace="http://ktswebservice.main.sf.com/" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SfKtsServiceImplService">
+    <wsdl:port binding="tns:SfKtsServiceImplServiceSoapBinding" name="SfKtsServiceImplPort">
+      <soap:address location="http://sfapi.trackmeeasy.com/ruserver/webservice/sfexpressService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
